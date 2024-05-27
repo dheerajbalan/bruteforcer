@@ -1,1 +1,79 @@
-dfhos
+Gate Crusher
+
+A Python-based brute force tool for FTP, SSH, HTTP, and Telnet services. This tool attempts to crack login credentials using user-provided wordlists for usernames and passwords.
+
+Features
+- Supports brute forcing for FTP, SSH, HTTP, and Telnet services.
+- Uses wordlists for username and password attempts.
+- Outputs the found credentials if successful.
+
+Requirements
+- Python 3.x
+- Required Python packages:
+  - `paramiko==2.10.1`
+  - `requests==2.27.1`
+  - `colorama==0.4.4`
+
+Installation
+1. Clone this repository:
+ sh	
+    git clone https://github.com/yourusername/gate-crusher.git
+    cd gate-crusher
+
+2. Install the required packages:
+sh
+    pip install -r requirements.txt
+   
+
+Usage
+
+To use the tool, run the following command:
+sh
+	sudo python3 bruteforcer.py -s <service> -H <target_host> -ul <userlist_file> -pl <passwordlist_file>
+
+Arguments
+
+-s, --service: Specify the service to brute force (ftp, ssh, http, telnet).
+-H, --host: Specify the host (hostname or IP).
+-ul, --user-list: Specify the username list file.
+-pl, --pass-list: Specify the password list file.
+
+HTTP Specific Arguments
+
+-u, --url: Specify the HTTP login URL (required for HTTP brute force).
+-uf, --user-field: Specify the username field name (required for HTTP brute force).
+-pf, --pass-field: Specify the password field name (required for HTTP brute force).
+
+Examples
+
+FTP Brute Force
+
+sh
+
+	sudo python3 bruteforcer.py -s ftp -H example.com -ul /path/to/		usernames.txt -pl /path/to/passwords.txt
+
+SSH Brute Force
+
+sh
+
+	sudo python3 bruteforcer.py -s ssh -H example.com -ul /path/to/usernames.txt -pl /path/to/passwords.txt
+
+HTTP Brute Force
+
+sh
+
+	sudo python3 bruteforcer.py -s http -H example.com -u http://example.com/login -uf username -pf password -ul /path/to/usernames.txt -pl /path/to/passwords.txt
+
+Telnet Brute Force
+
+sh
+
+	sudo python3 bruteforcer.py -s telnet -H example.com -ul /path/to/	usernames.txt -pl /path/to/passwords.txt
+
+License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+Disclaimer
+
+This tool is intended for educational purposes only and should not be used for illegal activities. The author is not responsible for any misuse of this tool.
+
